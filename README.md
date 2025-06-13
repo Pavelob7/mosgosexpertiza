@@ -1,10 +1,10 @@
 # САЙТ:
-https://pavelob.ru/
+https://pavelob.ru/  
 
-## Как я деплоил:
-(делал на основе старых заметок https://gist.github.com/Pavelob7/fe4cc9a992c7274f55b7b25aab00fad3)
+## Как я деплоил:  
+(делал на основе старых заметок https://gist.github.com/Pavelob7/fe4cc9a992c7274f55b7b25aab00fad3)  
 
-Зашел через mRemoteNG на свой VPS
+Зашел через mRemoteNG на свой VPS  
 
 Прописал в консоли:  
 ```sudo nano /etc/nginx/sites-available/default```
@@ -30,15 +30,15 @@ server {
 }
 ```
 
-Создал SSH ключи на своем локальном ПК, перенес на VPS и выдал полный доступ:
+Создал SSH ключи на своем локальном ПК, перенес на VPS и выдал полный доступ:  
 На Windows:
 ```
 ssh-keygen -t rsa -b 4096 -C "deploy key"
 ```
 
-Получаем 2 файла:
-deploy_key
-deploy_key.pub
+Получаем 2 файла:  
+deploy_key  
+deploy_key.pub  
 
 На VPS
 ```
@@ -94,10 +94,10 @@ jobs:
           rsync -avz --delete dist/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/pavelob/frontend/dist
 ```
 
-В Github Settings зашел в Secrets and variables, оттуда уже Actions, там указал секреты:
-SSH_PRIVATE_KEY // Сюда указываем deploy_key
-VPS_HOST // IP сайта
-VPS_PATH // Папка, где проект
-VPS_USER // имя юзера
+В Github Settings зашел в Secrets and variables, оттуда уже Actions, там указал секреты:  
+SSH_PRIVATE_KEY // Сюда указываем deploy_key  
+VPS_HOST // IP сайта  
+VPS_PATH // Папка, где проект  
+VPS_USER // имя юзера  
  
   
