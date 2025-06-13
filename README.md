@@ -68,13 +68,6 @@ jobs:
       - name: Install rsync
         run: sudo apt-get update && sudo apt-get install -y rsync
 
-      - name: Check dist contents
-        run: ls -la dist
-
-      - name: Debug on VPS
-        run: |
-          ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} 'ls -la /var/www/pavelob/frontend/dist'
-
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
@@ -85,6 +78,9 @@ jobs:
 
       - name: Build project
         run: npm run build
+
+      - name: Check dist contents
+        run: ls -la dist
 
       - name: Setup SSH
         run: |
