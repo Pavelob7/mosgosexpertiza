@@ -1,0 +1,302 @@
+[
+  {
+    "id": 2,
+    "steName": "Принтер лазерный",
+    "isActual": false,
+    "priceEndDate": 1717891200000,
+    "priceNotNds": 2000,
+    "nds": 10,
+    "price": 2200,
+    "fillEndDate": "2025-12-31"
+  },
+  {
+    "id": 3,
+    "steName": "Монитор 24 дюйма",
+    "isActual": true,
+    "priceEndDate": 1725580800000,
+    "priceNotNds": 15000,
+    "nds": 20,
+    "price": 18000,
+    "fillEndDate": "2026-02-15"
+  },
+  {
+    "id": 4,
+    "steName": "Клавиатура беспроводная",
+    "isActual": true,
+    "priceEndDate": 1719792000000,
+    "priceNotNds": 2500,
+    "nds": 20,
+    "price": 3000,
+    "fillEndDate": "2025-08-20"
+  },
+  {
+    "id": 5,
+    "steName": "Мышь игровая",
+    "isActual": true,
+    "priceEndDate": 1728086400000,
+    "priceNotNds": 3500,
+    "nds": 20,
+    "price": 4200,
+    "fillEndDate": "2026-03-10"
+  },
+  {
+    "id": 6,
+    "steName": "Ноутбук бизнес-класса",
+    "isActual": true,
+    "priceEndDate": 1730419200000,
+    "priceNotNds": 75000,
+    "nds": 20,
+    "price": 90000,
+    "fillEndDate": "2026-07-01"
+  },
+  {
+    "id": 7,
+    "steName": "Смартфон флагман",
+    "isActual": false,
+    "priceEndDate": 1711929600000,
+    "priceNotNds": 65000,
+    "nds": 20,
+    "price": 78000,
+    "fillEndDate": "2024-04-30"
+  },
+  {
+    "id": 8,
+    "steName": "Наушники беспроводные",
+    "isActual": true,
+    "priceEndDate": 1722902400000,
+    "priceNotNds": 8000,
+    "nds": 20,
+    "price": 9600,
+    "fillEndDate": "2025-08-05"
+  },
+  {
+    "id": 9,
+    "steName": "Внешний жесткий диск 1TB",
+    "isActual": true,
+    "priceEndDate": 1725504000000,
+    "priceNotNds": 4500,
+    "nds": 20,
+    "price": 5400,
+    "fillEndDate": "2025-10-12"
+  },
+  {
+    "id": 10,
+    "steName": "Роутер Wi-Fi 6",
+    "isActual": true,
+    "priceEndDate": 1728000000000,
+    "priceNotNds": 6000,
+    "nds": 20,
+    "price": 7200,
+    "fillEndDate": "2025-09-22"
+  },
+  {
+    "id": 11,
+    "steName": "Планшет 10 дюймов",
+    "isActual": true,
+    "priceEndDate": 1726704000000,
+    "priceNotNds": 25000,
+    "nds": 20,
+    "price": 30000,
+    "fillEndDate": "2025-11-30"
+  },
+  {
+    "id": 12,
+    "steName": "Фитнес-браслет",
+    "isActual": false,
+    "priceEndDate": 1713571200000,
+    "priceNotNds": 3500,
+    "nds": 20,
+    "price": 4200,
+    "fillEndDate": "2024-05-01"
+  },
+  {
+    "id": 13,
+    "steName": "Электронная книга",
+    "isActual": true,
+    "priceEndDate": 1722902400000,
+    "priceNotNds": 7000,
+    "nds": 20,
+    "price": 8400,
+    "fillEndDate": "2025-08-05"
+  },
+  {
+    "id": 14,
+    "steName": "Веб-камера HD",
+    "isActual": true,
+    "priceEndDate": 1725504000000,
+    "priceNotNds": 3000,
+    "nds": 20,
+    "price": 3600,
+    "fillEndDate": "2025-10-12"
+  },
+  {
+    "id": 15,
+    "steName": "ИБП для ПК",
+    "isActual": true,
+    "priceEndDate": 1728000000000,
+    "priceNotNds": 8000,
+    "nds": 20,
+    "price": 9600,
+    "fillEndDate": "2025-09-22"
+  },
+  {
+    "id": 16,
+    "steName": "Принтер струйный",
+    "isActual": true,
+    "priceEndDate": 1726704000000,
+    "priceNotNds": 5000,
+    "nds": 20,
+    "price": 6000,
+    "fillEndDate": "2025-11-30"
+  },
+  {
+    "id": 17,
+    "steName": "МФУ лазерное",
+    "isActual": true,
+    "priceEndDate": 1730419200000,
+    "priceNotNds": 20000,
+    "nds": 20,
+    "price": 24000,
+    "fillEndDate": "2026-07-01"
+  },
+  {
+    "id": 18,
+    "steName": "SSD диск 500GB",
+    "isActual": true,
+    "priceEndDate": 1722902400000,
+    "priceNotNds": 4000,
+    "nds": 20,
+    "price": 4800,
+    "fillEndDate": "2025-08-05"
+  },
+  {
+    "id": 19,
+    "steName": "Колонки компьютерные",
+    "isActual": false,
+    "priceEndDate": 1710979200000,
+    "priceNotNds": 2500,
+    "nds": 20,
+    "price": 3000,
+    "fillEndDate": "2024-06-30"
+  },
+  {
+    "id": 20,
+    "steName": "Микрофон для стриминга",
+    "isActual": true,
+    "priceEndDate": 1725504000000,
+    "priceNotNds": 5000,
+    "nds": 20,
+    "price": 6000,
+    "fillEndDate": "2025-10-12"
+  },
+  {
+    "id": 21,
+    "steName": "Графический планшет",
+    "isActual": true,
+    "priceEndDate": 1728000000000,
+    "priceNotNds": 15000,
+    "nds": 20,
+    "price": 18000,
+    "fillEndDate": "2025-09-22"
+  },
+  {
+    "id": 22,
+    "steName": "Игровая консоль",
+    "isActual": true,
+    "priceEndDate": 1730419200000,
+    "priceNotNds": 40000,
+    "nds": 20,
+    "price": 48000,
+    "fillEndDate": "2026-07-01"
+  },
+  {
+    "id": 23,
+    "steName": "Проектор офисный",
+    "isActual": true,
+    "priceEndDate": 1722902400000,
+    "priceNotNds": 30000,
+    "nds": 20,
+    "price": 36000,
+    "fillEndDate": "2025-08-05"
+  },
+  {
+    "id": 24,
+    "steName": "Сетевой фильтр",
+    "isActual": true,
+    "priceEndDate": 1725504000000,
+    "priceNotNds": 1500,
+    "nds": 20,
+    "price": 1800,
+    "fillEndDate": "2025-10-12"
+  },
+  {
+    "id": 25,
+    "steName": "Кабель HDMI 2.1",
+    "isActual": true,
+    "priceEndDate": 1728000000000,
+    "priceNotNds": 1200,
+    "nds": 20,
+    "price": 1440,
+    "fillEndDate": "2025-09-22"
+  },
+  {
+    "id": 26,
+    "steName": "Блок питания для ноутбука",
+    "isActual": true,
+    "priceEndDate": 1726704000000,
+    "priceNotNds": 3500,
+    "nds": 20,
+    "price": 4200,
+    "fillEndDate": "2025-11-30"
+  },
+  {
+    "id": 27,
+    "steName": "Коврик для мыши",
+    "isActual": false,
+    "priceEndDate": 1711929600000,
+    "priceNotNds": 500,
+    "nds": 20,
+    "price": 600,
+    "fillEndDate": "2024-04-30"
+  },
+  {
+    "id": 28,
+    "steName": "Подставка для ноутбука",
+    "isActual": true,
+    "priceEndDate": 1722902400000,
+    "priceNotNds": 2000,
+    "nds": 20,
+    "price": 2400,
+    "fillEndDate": "2025-08-05"
+  },
+  {
+    "id": 29,
+    "steName": "USB флешка 128GB",
+    "isActual": true,
+    "priceEndDate": 1725504000000,
+    "priceNotNds": 1000,
+    "nds": 20,
+    "price": 1200,
+    "fillEndDate": "2025-10-12"
+  },
+  {
+    "id": 30,
+    "steName": "Карта памяти microSD 256GB",
+    "isActual": true,
+    "priceEndDate": 1728000000000,
+    "priceNotNds": 1800,
+    "nds": 20,
+    "price": 2160,
+    "fillEndDate": "2025-09-22"
+  },
+  {
+    "id": 31,
+    "steName": "Внешний SSD 1TB",
+    "isActual": true,
+    "priceEndDate": 1730419200000,
+    "priceNotNds": 8000,
+    "nds": 20,
+    "price": 9600,
+    "fillEndDate": "2026-07-01"
+  }
+]

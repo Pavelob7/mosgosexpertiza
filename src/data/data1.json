@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "steName": "СТЕ 1",
+    "isActual": true,
+    "priceEndDate": 1717891200000,
+    "priceNotNds": 1000,
+    "nds": 20,
+    "price": 1200,
+    "fillEndDate": "2025-12-01"
+  },
+  {
+    "id": 2,
+    "steName": "СТЕ 2",
+    "isActual": false,
+    "priceEndDate": 1720406400000,
+    "priceNotNds": 1500,
+    "nds": 20,
+    "price": 1800,
+    "fillEndDate": "2025-03-15"
+  },
+  {
+    "id": 3,
+    "steName": "СТЕ 3",
+    "isActual": true,
+    "priceEndDate": 1715587200000,
+    "priceNotNds": 800,
+    "nds": 10,
+    "price": 880,
+    "fillEndDate": "2024-11-20"
+  },
+  {
+    "id": 4,
+    "steName": "СТЕ 4",
+    "isActual": true,
+    "priceEndDate": 1722902400000,
+    "priceNotNds": 2000,
+    "nds": 20,
+    "price": 2400,
+    "fillEndDate": "2025-08-05"
+  },
+  {
+    "id": 5,
+    "steName": "СТЕ 5",
+    "isActual": false,
+    "priceEndDate": 1710979200000,
+    "priceNotNds": 1200,
+    "nds": 10,
+    "price": 1320,
+    "fillEndDate": "2024-06-30"
+  },
+  {
+    "id": 6,
+    "steName": "СТЕ 6",
+    "isActual": true,
+    "priceEndDate": 1725504000000,
+    "priceNotNds": 2500,
+    "nds": 20,
+    "price": 3000,
+    "fillEndDate": "2025-10-12"
+  },
+  {
+    "id": 7,
+    "steName": "СТЕ 7",
+    "isActual": true,
+    "priceEndDate": 1713571200000,
+    "priceNotNds": 900,
+    "nds": 10,
+    "price": 990,
+    "fillEndDate": "2024-05-01"
+  },
+  {
+    "id": 8,
+    "steName": "СТЕ 8",
+    "isActual": false,
+    "priceEndDate": 1728000000000,
+    "priceNotNds": 1800,
+    "nds": 20,
+    "price": 2160,
+    "fillEndDate": "2025-09-22"
+  },
+  {
+    "id": 9,
+    "steName": "СТЕ 9",
+    "isActual": true,
+    "priceEndDate": 1716163200000,
+    "priceNotNds": 1100,
+    "nds": 10,
+    "price": 1210,
+    "fillEndDate": "2024-07-15"
+  },
+  {
+    "id": 10,
+    "steName": "СТЕ 10",
+    "isActual": true,
+    "priceEndDate": 1726704000000,
+    "priceNotNds": 3000,
+    "nds": 20,
+    "price": 3600,
+    "fillEndDate": "2025-11-30"
+  }
+]
