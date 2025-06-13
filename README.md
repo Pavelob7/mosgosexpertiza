@@ -30,5 +30,5 @@ server {
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
 ``` 
-
+ 
   
