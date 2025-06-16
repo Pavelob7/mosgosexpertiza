@@ -1,11 +1,10 @@
-# Vue 3 + TypeScript + Vite
+# САЙТ:
+https://pavelob.ru/  
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Как я деплоил:  
+(делал на основе старых заметок https://gist.github.com/Pavelob7/fe4cc9a992c7274f55b7b25aab00fad3)  
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
-
-
-## Как я деплоил:
+Зашел через mRemoteNG на свой VPS  
 
 Прописал в консоли:  
 ```sudo nano /etc/nginx/sites-available/default```
@@ -29,6 +28,76 @@ server {
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
-``` 
+```
+
+Создал SSH ключи на своем локальном ПК, перенес на VPS и выдал полный доступ:  
+На Windows:
+```
+ssh-keygen -t rsa -b 4096 -C "deploy key"
+```
+
+Получаем 2 файла:  
+deploy_key  
+deploy_key.pub  
+
+На VPS
+```
+mkdir -p ~/.ssh
+root@vps1718190838:~# nano ~/.ssh/authorized_keys // СЮДА УКАЗЫВАЕМ deploy_key.pub
+root@vps1718190838:~# chmod 700 ~/.ssh
+root@vps1718190838:~# chmod 600 ~/.ssh/authorized_keys
+```
+
+Зашел в Github Actions и создал новый workflow:
+```
+name: Deploy Vue Frontend to VPS
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install rsync
+        run: sudo apt-get update && sudo apt-get install -y rsync
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Check dist contents
+        run: ls -la dist
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to VPS
+        run: |
+          rsync -avz --delete dist/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/pavelob/frontend/dist
+```
+
+В Github Settings зашел в Secrets and variables, оттуда уже Actions, там указал секреты:  
+SSH_PRIVATE_KEY // Сюда указываем deploy_key  
+VPS_HOST // IP сайта  
+VPS_PATH // Папка, где проект  
+VPS_USER // имя юзера  
  
   

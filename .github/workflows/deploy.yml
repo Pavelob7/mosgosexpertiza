@@ -27,6 +27,9 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Check dist contents
+        run: ls -la dist
+
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
@@ -37,4 +40,3 @@ jobs:
       - name: Deploy to VPS
         run: |
           rsync -avz --delete dist/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/pavelob/frontend/dist
-
