@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { h, ref, watch } from 'vue'
-import {NSwitch, NDatePicker, NInputNumber} from 'naive-ui'
-import type {DataTableColumns, DataTableSortState} from 'naive-ui'
+import { h, ref, computed } from 'vue'
+import { NSwitch, NDatePicker, NInputNumber } from 'naive-ui'
+import type { DataTableColumns, DataTableSortState } from 'naive-ui'
 
 // Тип строки таблицы
 export interface TableRow {
@@ -15,12 +15,12 @@ export interface TableRow {
   fillEndDate: string
 }
 
-// пропсы, будет массив строк
+// Пропсы
 const props = defineProps<{
   data: TableRow[]
 }>()
 
-// контроль изменений
+// Эмиттер
 const emit = defineEmits<{
   (e: 'update', row: TableRow): void
 }>()
@@ -28,20 +28,14 @@ const emit = defineEmits<{
 // Состояние сортировки
 const sortState = ref<DataTableSortState | null>(null)
 
-// Отсортированные данные
-const sortedData = ref<TableRow[]>(props.data)
-
-// Функция сортировки данных
-const updateSortedData = () => {
-  if (!sortState.value) {
-    sortedData.value = [...props.data]
-    return
-  }
+// Вычисляем отсортированные данные
+const sortedData = computed(() => {
+  if (!sortState.value) return [...props.data]
 
   const { columnKey, order } = sortState.value
   let result = 0
 
-  sortedData.value = [...props.data].sort((a, b) => {
+  return [...props.data].sort((a, b) => {
     if (columnKey && columnKey in a && columnKey in b) {
       const key = columnKey as keyof TableRow
       const valA = a[key]
@@ -51,51 +45,39 @@ const updateSortedData = () => {
         result = valA - valB
       } else if (typeof valA === 'string' && typeof valB === 'string') {
         result = valA.localeCompare(valB, undefined, {
-          numeric: true,    // чтобы "СТЕ 10" > "СТЕ 2"
-          sensitivity: 'base' // нечувствительно к регистру и диакритике
+          numeric: true,
+          sensitivity: 'base'
         })
       }
     }
 
     return order === 'descend' ? -result : result
   })
-}
-
-
-// Следим за входными данными и пересортировываем
-watch(
-    () => props.data,
-    () => {
-      updateSortedData()
-    },
-    { immediate: true }
-)
-
+})
 
 // Обработчик сортировки
 const handleSorterChange = (sorter: DataTableSortState) => {
   sortState.value = sorter
-  updateSortedData()
 }
 
-// функция для апдейта строки, пересчитывает цену с НДС и шлёт наружу
+// Обновление строки + пересчёт цены с НДС
 function updateRow<K extends keyof TableRow>(row: TableRow, key: K, value: TableRow[K]) {
   try {
-    row[key] = value;
+    row[key] = value
 
     if (key === 'priceNotNds' || key === 'nds') {
-      const notNds = Number(row.priceNotNds) || 0;
-      const ndsVal = Number(row.nds) || 0;
-      row.price = notNds + (notNds * ndsVal / 100);
+      const notNds = Number(row.priceNotNds) || 0
+      const ndsVal = Number(row.nds) || 0
+      row.price = notNds + (notNds * ndsVal / 100)
     }
 
-    emit('update', row);
+    emit('update', row)
   } catch (error) {
-    console.error('Update error:', error);
+    console.error('Update error:', error)
   }
 }
 
-// колонки для таблицы, некоторые с редактированием
+// Колонки таблицы
 const columns: DataTableColumns<TableRow> = [
   {
     title: 'Наименование СТЕ',
@@ -114,12 +96,13 @@ const columns: DataTableColumns<TableRow> = [
   {
     title: 'Срок действия предоставленных сведений',
     key: 'priceEndDate',
-    render: (row) => h(NDatePicker, {
-      value: row.priceEndDate,
-      type: 'date',
-      'onUpdate:value': (val: number | null) => updateRow(row, 'priceEndDate', val),
-      format: 'dd.MM.yyyy'
-    })
+    render: (row) =>
+        h(NDatePicker, {
+          value: row.priceEndDate,
+          type: 'date',
+          'onUpdate:value': (val: number | null) => updateRow(row, 'priceEndDate', val),
+          format: 'dd.MM.yyyy'
+        })
   },
   {
     title: 'Цена, руб. без НДС',
@@ -128,8 +111,7 @@ const columns: DataTableColumns<TableRow> = [
         h(NInputNumber, {
           value: row.priceNotNds,
           min: 0,
-          'onUpdate:value': (val: number | null) =>
-              updateRow(row, 'priceNotNds', val ?? 0)
+          'onUpdate:value': (val: number | null) => updateRow(row, 'priceNotNds', val ?? 0)
         })
   },
   {
@@ -146,10 +128,11 @@ const columns: DataTableColumns<TableRow> = [
   {
     title: 'Цена, руб. с НДС',
     key: 'price',
-    render: (row) => new Intl.NumberFormat('ru-RU', {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    }).format(row.price)
+    render: (row) =>
+        new Intl.NumberFormat('ru-RU', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        }).format(row.price)
   },
   {
     title: 'Срок заполнения',
@@ -159,7 +142,6 @@ const columns: DataTableColumns<TableRow> = [
 </script>
 
 <template>
-  <!-- кидаем колонки, данные и отключаем пагинацию -->
   <n-data-table
       :columns="columns"
       :data="sortedData"
